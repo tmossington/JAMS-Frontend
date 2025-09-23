@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
-import { ThemeProvider, createTheme, CssBaseline, useMediaQuery, Drawer, List, ListItem, ListItemText, IconButton, Box, Menu, MenuItem, Switch } from '@mui/material';
+import { ThemeProvider, createTheme, CssBaseline, useMediaQuery, Drawer, List, ListItem, ListItemText, ListItemButton, IconButton, Box, Menu, MenuItem, Switch } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import ExpandLess from '@mui/icons-material/ExpandLess';
@@ -63,32 +63,52 @@ function App() {
     const renderNavigationList = () => (
         <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)} onKeyDown={toggleDrawer(false)}>
             <List>
-                <ListItem button onClick={handleNavigateTo('home')}>
-                    <ListItemText primary="Home" />
+                <ListItem disablePadding>
+                    <ListItemButton onClick={handleNavigateTo('home')}>
+                        <ListItemText primary="Home" />
+                    </ListItemButton>
                 </ListItem>
-                <ListItem button onClick={handleNavigateTo('heatmap')}>
-                    <ListItemText primary="Heatmap Analysis" />
+                <ListItem disablePadding>
+                    <ListItemButton onClick={handleNavigateTo('heatmap')}>
+                        <ListItemText primary="Heatmap Analysis" />
+                    </ListItemButton>
                 </ListItem>
-                <ListItem button onClick={handleNavigateTo('ordination')}>
+
+                <ListItem disablePadding>
+                <ListItemButton onClick={handleNavigateTo('ordination')}>
                     <ListItemText primary="Ordination Analysis" />
+                    </ListItemButton>
                 </ListItem>
-                <ListItem button onClick={handleNavigateTo('alphadiversity')}>
+
+                <ListItem disablePadding>
+                <ListItemButton onClick={handleNavigateTo('alphadiversity')}>
                     <ListItemText primary="Alpha Diversity Analysis" />
+                    </ListItemButton>
                 </ListItem>
-                <ListItem button onClick={handleNavigateTo('relabundfeatures')}>
+
+                <ListItem disablePadding>
+                 <ListItemButton onClick={handleNavigateTo('relabundfeatures')}>
                     <ListItemText primary="Relabund Features Analysis" />
+                    </ListItemButton>
                 </ListItem>
-                <ListItem button onClick={handleToggleSettings}>
+
+                <ListItem disablePadding>
+                <ListItemButton onClick={handleToggleSettings}>
                     <ListItemText primary="Settings" />
                     {isSettingsOpen ? <ExpandLess /> : <ExpandMore />}
+                    </ListItemButton>
                 </ListItem>
                 {isSettingsOpen && (
                     <List component="div" disablePadding>
-                        <ListItem button sx={{ pl: 4 }}>
+                        <ListItem disablePadding>
+                        <ListItemButton sx={{ pl: 4 }}>
                             <ListItemText primary="Profile Settings" />
+                            </ListItemButton>
                         </ListItem>
-                        <ListItem button sx={{ pl: 4 }}>
+                        <ListItem disablePadding>
+                        <ListItemButton sx={{ pl: 4 }}>
                             <ListItemText primary="App Settings" />
+                            </ListItemButton>
                         </ListItem>
                     </List>
                 )}
