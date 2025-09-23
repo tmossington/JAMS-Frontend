@@ -9,6 +9,15 @@ contextBridge.exposeInMainWorld('electron', {
   runOrdinationScript: (params) => ipcRenderer.invoke('run-ordination-script', params),
   runAlphaDiversityScript: (params) => ipcRenderer.invoke('run-alphaDiversity-script', params),
   runRelabundFeaturesScript: (params) => ipcRenderer.invoke('run-relabundFeatures-script', params),
-  onParamStr: (callback) => ipcRenderer.on('param-str', (event, paramStr) => callback(paramStr))
+  onParamStr: (callback) => ipcRenderer.on('param-str', (event, paramStr) => callback(paramStr)),
+});
+
+contextBridge.exposeInMainWorld('appInfo', {
+  getVersion: async () => {
+    try {
+      return await ipcRenderer.invoke('app:getVersion');
+    } catch {
+      return 'unknown'; }
+    }
 });
 
