@@ -5,8 +5,7 @@ node_modules/
 .cache/
 
 # Build output
-dist/*
-!dist/JAMS Setup 0.1.3.exe
+dist/
 
 # Logs
 logs
