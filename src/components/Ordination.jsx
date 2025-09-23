@@ -6,6 +6,7 @@ import useAutoScroll from './common/useAutoScroll';
 import LoadingIndicator from './common/LoadingIndicator';
 import WarningSnackbar, { validateRequiredFields, useWarningState } from './common/warningMessage';
 import { SecurityUpdateWarning } from '@mui/icons-material';
+import VersionDisplay from './VersionDisplay';
 
 const Ordination = ({ handleNavigateTo }) => {
     // Parameter options
@@ -318,6 +319,7 @@ const Ordination = ({ handleNavigateTo }) => {
                 </Button>
             </div>
         )}
+        <VersionDisplay />
         </div>
     );
 };

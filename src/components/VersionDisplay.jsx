@@ -17,7 +17,7 @@ const VersionDisplay = () => {
   }, []);
 
   return (
-    <Box sx={{ position: 'absolute', bottom: 8, right: 16, opacity: 0.7 }}>
+    <Box sx={{ position: 'fixed', bottom: 8, right: 16, opacity: 0.7, zIndex: 1300, }}>
       <Typography variant="caption" color="text.secondary">
         Version {version || '—'}
       </Typography>

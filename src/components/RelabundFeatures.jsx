@@ -5,6 +5,8 @@ import Box from '@mui/material/Box';
 import useAutoScroll from './common/useAutoScroll';
 import LoadingIndicator from './common/LoadingIndicator';
 import WarningSnackbar, { validateRequiredFields, useWarningState } from './common/warningMessage';
+import VersionDisplay from './VersionDisplay';
+
 
 const RelabundFeatures = ({ handleNavigateTo }) => {
     const [parameters, setParameters] = useState({
@@ -329,7 +331,7 @@ const RelabundFeatures = ({ handleNavigateTo }) => {
                     </Button>
                 </div>
             )}
-
+            <VersionDisplay />
         </div>
     );
 };
