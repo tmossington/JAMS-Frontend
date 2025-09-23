@@ -1172,3 +1172,6 @@ ipcMain.on('open-RelabundFeatures-location', (event, filePath) => {
   const outputFilePath = path.join(app.getPath('userData'), 'assets', 'relabundFeatures.pdf');
   shell.openPath(outputFilePath);
 });
+
+// App Version
+ipcMain.handle('app:getVersion', () => app.getVersion());
