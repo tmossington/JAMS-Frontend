@@ -5,6 +5,8 @@ import Box from '@mui/material/Box';
 import useAutoScroll from './common/useAutoScroll';
 import LoadingIndicator from './common/LoadingIndicator';
 import WarningSnackbar, { validateRequiredFields, useWarningState } from './common/warningMessage';
+import VersionDisplay from './VersionDisplay';
+
 
 const AlphaDiversity =({ handleNavigateTo }) => {
     const [parameters, setParameters] = useState({
@@ -271,6 +273,7 @@ const AlphaDiversity =({ handleNavigateTo }) => {
                 </Button>
             </div>
         )}
+        <VersionDisplay />
     </div>
     );
 };

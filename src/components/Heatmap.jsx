@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import useAutoScroll from './common/useAutoScroll';
 import LoadingIndicator from './common/LoadingIndicator';
 import WarningSnackbar, { validateRequiredFields, useWarningState } from './common/warningMessage';
+import VersionDisplay from './VersionDisplay';
 
 
 const Heatmap = ({ handleNavigateTo }) => {
@@ -322,6 +323,7 @@ const Heatmap = ({ handleNavigateTo }) => {
                     </Button>
                 </div>
             )}
+            <VersionDisplay />
         </div>
     );
 };
