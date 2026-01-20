@@ -121,8 +121,7 @@ const AlphaDiversity =({ handleNavigateTo }) => {
             setAlphaDiversityData(result);
         } catch (error) {
             console.error("Error generating AlphaDiversity plot:", error)
-            setWarningMessage(`Error: ${error.message || 'Failed to generate alpha diversity plot'}`);
-            setShowWarning(true);
+            showWarningMessage(`Error: ${error.message || 'Failed to generate alpha diversity plot'}`);
         } finally {
             setLoading(false);
             setGeneratingAD(false);

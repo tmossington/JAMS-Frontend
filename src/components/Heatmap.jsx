@@ -170,8 +170,7 @@ const Heatmap = ({ handleNavigateTo }) => {
             setHeatmapData(result);
         } catch (error) {
             console.error('Error generating heatmap:', error);
-            setWarningMessage(`Error: ${error.message || 'Failed to generate heatmap'}`);
-            setShowWarning(true);
+            showWarningMessage(`Error: ${error.message || 'Failed to generate heatmap'}`);
         } finally {
             setLoading(false); // End loading circle regardless of success or failure
             setGeneratingHeatmap(false);

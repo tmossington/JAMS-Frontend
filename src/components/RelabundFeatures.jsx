@@ -177,8 +177,7 @@ const RelabundFeatures = ({ handleNavigateTo }) => {
             setRelabundFeatureData(result);
         } catch (error) {
             console.error("Error generating RelabundFeature plot:", error);
-            setWarningMessage(`Error: ${error.message || 'Failed to generate Relabund Features'}`);
-            setShowWarning(true);
+            showWarningMessage(`Error: ${error.message || 'Failed to generate Relabund Features'}`);
         } finally {
             setLoading(false);
             setGeneratingRelabund(false);

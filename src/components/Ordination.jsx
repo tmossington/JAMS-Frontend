@@ -164,8 +164,7 @@ const Ordination = ({ handleNavigateTo }) => {
             setOrdinationData(result);
         } catch (error) {
             console.error("Error generating ordination plot:", error);
-            setWarningMessage(`Error: ${error.message || 'Failed to generate ordination plot'}`);
-            setShowWarning(true);
+            showWarningMessage(`Error: ${error.message || 'Failed to generate ordination plot'}`);
         } finally {
             setLoading(false); // end loading circle
             setGeneratingOrdination(false);
