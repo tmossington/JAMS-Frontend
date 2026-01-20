@@ -124,7 +124,7 @@ const RelabundFeatures = ({ handleNavigateTo }) => {
     const [filePath, setFilePath] = useState('');
     const [selectedObj, setSelectedObj] = useState('')
     const [loading, setLoading] = useState(false);
-    const [generatingRelabund, setGeneratingRelabnd] = useState(false);
+    const [generatingRelabund, setGeneratingRelabund] = useState(false);
 
     const resultRef = useRef(null);
     const loadingRef = useRef(null);
@@ -162,7 +162,7 @@ const RelabundFeatures = ({ handleNavigateTo }) => {
         console.log('Selected ExpObj:', selectedObj);
         try {
             setLoading(true);
-            setGeneratingRelabnd(true);
+            setGeneratingRelabund(true);
             // Combine the parameters with selected objects and file path
             const params = {
                 filePath,
@@ -177,11 +177,11 @@ const RelabundFeatures = ({ handleNavigateTo }) => {
             setRelabundFeatureData(result);
         } catch (error) {
             console.error("Error generating RelabundFeature plot:", error);
-            setWarningMessage(`Error: ${error.message || 'Failed to generate heatmap'}`);
+            setWarningMessage(`Error: ${error.message || 'Failed to generate Relabund Features'}`);
             setShowWarning(true);
         } finally {
             setLoading(false);
-            setGeneratingRelabnd(false);
+            setGeneratingRelabund(false);
         }
     };
 
@@ -292,7 +292,7 @@ const RelabundFeatures = ({ handleNavigateTo }) => {
                                 <option value='stringent'>stringent</option>
                             </select>
 
-                        ) : typeof parameters[key] === 'booleran' ? (
+                        ) : typeof parameters[key] === 'boolean' ? (
                             <input
                             type='checkbox'
                             id={key}
