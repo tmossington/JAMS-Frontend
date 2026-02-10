@@ -2,6 +2,7 @@ const { app, BrowserWindow, ipcMain, dialog, shell } = require('electron');
 const path = require('path');
 const { exec } = require('child_process');
 const fs = require('fs');
+const { serializeParams } = require('./src/services/param-serializer');
 
 // Import autoUpdater from electron-updater
 // const { autoUpdater } = require('electron-updater');
