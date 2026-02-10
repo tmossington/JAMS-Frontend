@@ -265,7 +265,7 @@ ipcMain.handle('run-heatmap-script', async (event, params) => {
   const outputFilePath = path.join(outputDir, 'heatmap.pdf');
   const rscriptPath = process.platform === 'win32' ? 'Rscript' : '/usr/local/bin/Rscript';
   const scriptPath = isDev
-    ? path.join(__dirname, '..', 'R', 'plot_relabund_heatmap.R').replace(/\\/g, '\\\\') // dev path
+    ? path.join(__dirname, '..', 'JAMS_BW', 'R', 'plot_relabund_heatmap.R').replace(/\\/g, '\\\\') // dev path
     : path.join(process.resourcesPath, 'JAMS_BW_dev', 'R', 'plot_relabund_heatmap.R').replace(/\\/g, '\\\\'); // prod path
 
   // Create output directory and log results
@@ -508,7 +508,7 @@ ipcMain.handle('run-ordination-script', async (event, params) => {
   const outputFilePath = path.join(outputDir, 'ordination.pdf');
   const rscriptPath = process.platform === 'win32' ? 'Rscript' : '/usr/local/bin/Rscript';
   const scriptPath = isDev
-    ? path.join(__dirname, '..', 'R', 'plot_Ordination.R').replace(/\\/g, '\\\\') // dev path
+    ? path.join(__dirname, '..', 'JAMS_BW', 'R', 'plot_Ordination.R').replace(/\\/g, '\\\\') // dev path
     : path.join(process.resourcesPath, 'JAMS_BW_dev', 'R', 'plot_Ordination.R').replace(/\\/g, '\\\\'); // prod path
 
   // Create output directory and log results
@@ -753,7 +753,7 @@ ipcMain.handle('run-alphaDiversity-script', async (event, params) => {
   const outputFilePath = path.join(outputDir, 'alphaDiversity.pdf');
   const rscriptPath = process.platform === 'win32' ? 'Rscript' : '/usr/local/bin/Rscript';
   const scriptPath = isDev
-    ? path.join(__dirname, '..', 'R', 'plot_alpha_diversity.R').replace(/\\/g, '\\\\') // dev path
+    ? path.join(__dirname, '..', 'JAMS_BW', 'R', 'plot_alpha_diversity.R').replace(/\\/g, '\\\\') // dev path
     : path.join(process.resourcesPath, 'JAMS_BW_dev', 'R', 'plot_alpha_diversity.R').replace(/\\/g, '\\\\'); // prod path
 
   // Create output directory and log results
@@ -980,7 +980,7 @@ ipcMain.handle('run-relabundFeatures-script', async (event, params) => {
   const outputFilePath = path.join(outputDir, 'relabundFeatures.pdf');
   const rscriptPath = process.platform === 'win32' ? 'Rscript' : '/usr/local/bin/Rscript';
   const scriptPath = isDev
-    ? path.join(__dirname, '..', 'R', 'plot_relabund_features.R').replace(/\\/g, '\\\\') // dev path
+    ? path.join(__dirname, '..', 'JAMS_BW', 'R', 'plot_relabund_features.R').replace(/\\/g, '\\\\') // dev path
     : path.join(process.resourcesPath, 'JAMS_BW_dev', 'R', 'plot_relabund_features.R').replace(/\\/g, '\\\\'); // prod path
 
   // Create output directory and log results
