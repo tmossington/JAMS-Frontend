@@ -1068,7 +1068,8 @@ ipcMain.handle('run-relabundFeatures-script', async (event, params) => {
         cat("PDF device opened\\n")
         tryCatch({
           cat("Attempting to run plot_relabund_features...\\n")
-          plot_relabund_features(${paramStr})
+          result <- plot_relabund_features(${paramStr});
+          invisible(lapply(result, function(p) { if (!is.null(p)) print(p) }));
           cat("plot_relabund_features completed successfully!\\n")
         }, error = function(e) {
           cat("ERROR IN R CODE: ", e$message, "\\n")
