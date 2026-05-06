@@ -203,7 +203,7 @@ ipcMain.handle('load-rdata-file', async (event, filePath) => {
       }
       if (stderr) {
         console.error(`stderr: ${stderr}`);
-        if (!stderr.toLowerCase().includes("warning")) {
+        if (!stderr.toLowerCase().includes("warning") && stderr.toLowerCase().includes("error")) {
           reject(`R error: ${stderr}`);
           return;
         }
@@ -424,16 +424,16 @@ ipcMain.handle('run-heatmap-script', async (event, params) => {
           reject(`Error: ${error.message}`);
           return;
         }
-        
+
         // Rest of the error handling...
         if (stderr) {
           console.error(`R stderr: ${stderr}`);
-          if (!stderr.toLowerCase().includes("warning")) {
+          if (!stderr.toLowerCase().includes("warning") && stderr.toLowerCase().includes("error")) {
             reject(`Stderr: ${stderr}`);
             return;
           }
         }
-        
+
         // Check file exists
         if (fs.existsSync(outputFilePath)) {
           const stats = fs.statSync(outputFilePath);
@@ -671,12 +671,12 @@ ipcMain.handle('run-ordination-script', async (event, params) => {
         // Rest of the error handling...
         if (stderr) {
           console.error(`R stderr: ${stderr}`);
-          if (!stderr.toLowerCase().includes("warning")) {
+          if (!stderr.toLowerCase().includes("warning") && stderr.toLowerCase().includes("error")) {
             reject(`Stderr: ${stderr}`);
             return;
           }
         }
-        
+
         // Check file exists
         if (fs.existsSync(outputFilePath)) {
           const stats = fs.statSync(outputFilePath);
@@ -829,10 +829,11 @@ ipcMain.handle('run-alphaDiversity-script', async (event, params) => {
         suppressPackageStartupMessages({
         suppressWarnings({
         ${loadCommand};
-        library(JAMS); 
+        library(JAMS);
         source("${scriptPath}");
         pdf("${escapedOutputPath}", paper = "a4r");
-        plot_alpha_diversity(${paramStr})
+        result <- plot_alpha_diversity(${paramStr});
+        invisible(lapply(result, function(p) { if (!is.null(p)) print(p) }));
         dev.off();
         })
       })'
@@ -901,12 +902,12 @@ ipcMain.handle('run-alphaDiversity-script', async (event, params) => {
         // Rest of the error handling...
         if (stderr) {
           console.error(`R stderr: ${stderr}`);
-          if (!stderr.toLowerCase().includes("warning")) {
+          if (!stderr.toLowerCase().includes("warning") && stderr.toLowerCase().includes("error")) {
             reject(`Stderr: ${stderr}`);
             return;
           }
         }
-        
+
         // Check file exists
         if (fs.existsSync(outputFilePath)) {
           const stats = fs.statSync(outputFilePath);
@@ -1143,12 +1144,12 @@ ipcMain.handle('run-relabundFeatures-script', async (event, params) => {
         // Rest of the error handling...
         if (stderr) {
           console.error(`R stderr: ${stderr}`);
-          if (!stderr.toLowerCase().includes("warning")) {
+          if (!stderr.toLowerCase().includes("warning") && stderr.toLowerCase().includes("error")) {
             reject(`Stderr: ${stderr}`);
             return;
           }
         }
-        
+
         // Check file exists
         if (fs.existsSync(outputFilePath)) {
           const stats = fs.statSync(outputFilePath);
